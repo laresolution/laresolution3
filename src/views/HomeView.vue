@@ -5,11 +5,14 @@
     <RslvTextInput name="email" label="Email"></RslvTextInput>
     <RslvTextInput name="phone" label="Phone"></RslvTextInput>
     <RslvTextInput name="favoriteNinjaTurtle" label="Favorite Ninja Turtle"></RslvTextInput>
+        <RslvTextInput  name="siteTest" type="text" label="Votre Site Test "  ></RslvTextInput>
+
+
   </div>
 </template>
 
 <script setup>
-import { useForm } from 'vee-validate'
+import { useForm, } from 'vee-validate'
 import RslvTextInput from '../components/form/RslvTextInput.vue';
 
 const simpleSchema = {
@@ -29,6 +32,15 @@ const simpleSchema = {
     if (value !== 'Donatello') {
       return 'Your favorite turtle is not Donatello'
     } else {
+      return true
+    }
+  },
+  siteTest(value) {
+    if (value.length < 3 ) {
+    return 'Votre site doit contenir un minimum de 3 caracteres';
+    } else if (value.length > 255){
+      return 'Votre site doit contenir un maximum de 255 caracteres';
+    }else {
       return true
     }
   }

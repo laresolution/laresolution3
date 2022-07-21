@@ -1,15 +1,27 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <MyTextInput name="email" />
+
+    <MyTextInput name="password" />
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<script setup>
+import { useForm } from 'vee-validate';
+import MyTextInput from '@/components/MyTextInput.vue';
+
+// Define a validation schema
+const simpleSchema = {
+  email(value) {
+    // validate email value and return messages...
+  },
+  password(value) {
+    // validate password value and return messages...
+  },
+};
+
+// Create a form context with the validation schema
+useForm({
+  validationSchema: simpleSchema,
+});
+</script>
