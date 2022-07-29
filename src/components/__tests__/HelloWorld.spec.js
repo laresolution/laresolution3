@@ -6,6 +6,7 @@ import HelloWorld from "../HelloWorld.vue";
 
 describe("HelloWorld", () => {
 
+
   it("renders properly", async () => {
     const wrapper = mount(HelloWorld, {
       global: {

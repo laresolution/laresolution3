@@ -5,9 +5,7 @@
     <RslvTextInput name="email" label="Email"></RslvTextInput>
     <RslvTextInput name="phone" label="Phone"></RslvTextInput>
     <RslvTextInput name="favoriteNinjaTurtle" label="Favorite Ninja Turtle"></RslvTextInput>
-        <RslvTextInput  name="siteTest" type="text" label="Votre Site Test "  ></RslvTextInput>
-
-
+    <RslvTextInput name="siteTest" label="Votre Site Test "></RslvTextInput>
   </div>
 </template>
 
@@ -36,9 +34,9 @@ const simpleSchema = {
     }
   },
   siteTest(value) {
-    if (value.length < 3 ) {
+    if (value?.length < 3 ) {
     return 'Votre site doit contenir un minimum de 3 caracteres';
-    } else if (value.length > 255){
+    } else if (value?.length > 255){
       return 'Votre site doit contenir un maximum de 255 caracteres';
     }else {
       return true
@@ -48,13 +46,4 @@ const simpleSchema = {
 useForm({
   validationSchema: simpleSchema
 })
-
-// const submit = () => {
-//   validate().then(result => {
-//     alert(JSON.stringify(result))
-//     console.log(values.value)
-//   }).catch(e => {
-//     alert(e.message)
-//   })
-// }
 </script>

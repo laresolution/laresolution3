@@ -1,14 +1,14 @@
 <template>
   <div>
-    <MyTextInput name="email" />
+    <RslvTextInput name="email" />
 
-    <MyTextInput name="password" />
+    <RslvTextInput name="password" />
   </div>
 </template>
 
 <script setup>
 import { useForm } from 'vee-validate';
-import MyTextInput from '@/components/MyTextInput.vue';
+import RslvTextInput from '@/components/form/RslvTextInput.vue';
 
 // Define a validation schema
 const simpleSchema = {

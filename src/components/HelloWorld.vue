@@ -21,9 +21,7 @@ const submit = () => {
 </script>
 
 <template>
-  <v-container>
-    <v-text-field v-model="state.siteName" data-test="input"></v-text-field>
-    <v-btn @click="submit" v-show="!state.submitted" data-test="button">Submit</v-btn>
-    <v-label v-show="state.submitted" data-test="label">{{myComputedProp}}</v-label>
-  </v-container>
+  <input v-model="state.siteName" data-test="input">
+  <button @click="submit" v-if="!state.submitted" data-test="button">Submit</button>
+  <p v-if="state.submitted" data-test="label">{{myComputedProp}}</p>
 </template>
