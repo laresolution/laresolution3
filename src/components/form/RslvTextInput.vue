@@ -1,6 +1,6 @@
 <script setup>
 import { useField } from 'vee-validate'
-import { toRef, computed } from 'vue'
+import { ref, toRef, computed } from 'vue'
 
 const props = defineProps(['label', 'placeholder', 'disabled', 'name'])
 
@@ -13,18 +13,38 @@ const errorClasses = computed(() => {
     }
 })
 
+const input = ref(null)
+
+const focusInput = () => {
+    input.value.focus()
+}
+
 </script>
 <template>
-    <div class="p-1 flex flex-col justify-between border-2 bg-zinc-100 h-18 relative">
-        <input class="bg-zinc-100 border-b border-zinc-800 focus-within:outline-none leading-10 align-bottom" type="text" v-model="value" :placeholder="placeholder" :disabled="disabled" :class="errorClasses"/>
-        <h4 class="order-first bg-transparent h-4 z-10 absolute bottom-8">{{label}}</h4>
-        <p v-show="errorMessage" class="text-sm text-red-800 h-4">{{errorMessage}}</p>
+<div class="p-1">
+    <div class="flex flex-col text-lg justify-end h-16 relative">
+        <input ref="input" class="text-2xl border-b border-zinc-800 focus-within:outline-none align-bottom" type="text" v-model="value" :placeholder="placeholder" :disabled="disabled" :class="errorClasses"/>
+        <div @click="focusInput" class="order-first bg-transparent h-4 z-5 absolute bottom-6" :class="{ hovered: !!value}">
+            <h4>{{label}}</h4>
+        </div>
+        <div class="text-sm text-red-800 h-4">
+            <span>{{errorMessage}}</span>
+        </div>
     </div>
+</div>
 </template>
-<style>
-input:focus-within + h4 {
-    font-size: 0.8em;
-    transition: font-size 0.1s, bottom 0.1s;
-    bottom: 3rem;
+<style scoped>
+input:focus-within + div {
+    opacity: 0.5 ;
+    font-size: 0.9em;
+    transition: all 0.3s ease-in, bottom 0.1s;
+    bottom: 3.5rem;
+}
+
+.hovered {
+    opacity: 0.5 ;
+    font-size: 0.9em;
+    transition: all 0.3s ease-in, bottom 0.1s;
+    bottom: 3.5rem;
 }
 </style>
