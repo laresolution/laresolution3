@@ -1,17 +1,19 @@
 <template>
-    This is my new view 2
-  </template>
+  <h1>This is my new view 2</h1>
+</template>
+<style scoped>
+h1 {text-align: center;}
+</style>
   
   <script setup>
   import { useForm } from 'vee-validate';
-  import RslvTextInput from '@/components/form/RslvTextInput.vue';
   
   // Define a validation schema
   const simpleSchema = {
-    email(value) {
+    email() {
       // validate email value and return messages...
     },
-    password(value) {
+    password() {
       // validate password value and return messages...
     },
   };
