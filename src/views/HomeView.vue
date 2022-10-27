@@ -6,6 +6,7 @@
     <RslvTextInput name="phone" label="Phone"></RslvTextInput>
     <RslvTextInput name="favoriteNinjaTurtle" label="Favorite Ninja Turtle"></RslvTextInput>
     <RslvTextInput name="siteTest" label="Votre Site Test "></RslvTextInput>
+    
   </div>
 </template>
 

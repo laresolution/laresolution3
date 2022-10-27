@@ -1,10 +1,9 @@
 <template>
-  <h1>This is my new view 2</h1>
-</template>
-<style scoped>
-h1 {text-align: center;}
-</style>
-  
+    <h1>Voici La View 2</h1>
+  </template>
+  <style scoped>
+  h1 {text-align: center;}
+  </style>
   <script setup>
   import { useForm } from 'vee-validate';
   

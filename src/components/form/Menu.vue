@@ -9,14 +9,21 @@ const state = reactive({
 
 
 // submitted status
+state.submitted = false
 const myComputedProp = computed(() => {
   return state.siteName + ' Ton Menu'
 })
+const submit = () => {
+  state.submitted = true
+  // go to page
+}
 
 </script>
 
 <template>
+    
     <aside>
+        <div class="p-1 myInput">   
     <div>
         <ul>
             <li>
@@ -32,11 +39,13 @@ const myComputedProp = computed(() => {
                 <a href="new3">test3</a>
             </li>
             <li>
-                <a href="ToDoList">ToDoList</a>
+                <a href="WebSite">WebSite</a>
             </li>
         </ul>
     </div>
+</div>
 </aside>
+
 </template>
 <style scoped>
 aside {
@@ -49,4 +58,9 @@ aside {
     border-right: 5px solid #ececec;
     transition: all .3s ease;
 }
+.myInput {
+    display: flex;
+    justify-content: center;
+          }
+        
 </style>

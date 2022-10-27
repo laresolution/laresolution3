@@ -1,7 +1,12 @@
 <template>
-  <div id="app">
+   <div class="p-1 myInput2">
+  <div  id="app">
+    
+      <div class="one">   
     <Menu></Menu>
     <router-view></router-view>
+  </div>
+</div>
   </div>
 </template>
 
@@ -15,3 +20,11 @@ export default {
     components: { Menu }
 }
 </script>
+<style scoped>
+.myInput2{
+    
+    display: flex;
+    justify-content: center;
+}
+ 
+  </style>

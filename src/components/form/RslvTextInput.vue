@@ -54,15 +54,7 @@ input:focus-within + div  {
     
 }
 .myInput {
-  padding: 15.0em;
-  margin-top: -10em;
-  line-height: 0em;
-  margin-bottom: -29em;
-}
-
-div {
-  margin-bottom: 0em;
-  line-height: 0.5;
-}
-
+    display: flex;
+    flex-direction: row;
+          }
 </style>

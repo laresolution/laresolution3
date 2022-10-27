@@ -1,5 +1,5 @@
 <template>
-    <h1>This is my new view 3</h1>
+    <h1>Voici La View 3</h1>
   </template>
   <style scoped>
   h1 {text-align: center;}
