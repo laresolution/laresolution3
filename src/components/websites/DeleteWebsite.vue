@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "ToDo",
+  name: "DeleteWebsite",
   data() {
     return {
       ToDo_list: [],

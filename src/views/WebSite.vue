@@ -6,26 +6,7 @@
     </h1>
   </div>
   </div>
-    <form class="row container my-4" @submit="save">
-      <div class="col-md-3"></div>
-      <div class="col-md-6" style="text-align: left">
-        <div class="Todo"> 
-        <label for="todo">Nouveau Site</label>
-        </div>
-       <div class="Input">
-        <input class="form-control" name="todo" id="todo" type="text" required v-model="todo"/>
-       </div>
-      </div>
-      <div class="col-md-3"></div>
-      <div class="col-md-3"></div>
-      <div class="col-md-6 my-2 d-grid gap-2">
-        <div class="ButtonAdd">
-        <button
-          type="submit">Ajouter un site web</button>
-      </div>
-      </div>
-      <div class="col-md-3"></div>
-    </form>
+    <AddWebSite></AddWebSite>
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
@@ -78,37 +59,30 @@
   </template>
 
 <script>
+import AddWebSite from '../components/websites/AddWebsite.vue';
+
 export default {
-  name: "ToDo",
-  data() {
-    return {
-      ToDo_list: [],
-    };
-  },
-  mounted() {
-    if (localStorage.getItem("allToDo")) {
-      this.ToDo_list = JSON.parse(localStorage.getItem("allToDo"));
-    }
-  },
-  methods: {
-    save() {
-      var existingTasks = JSON.parse(localStorage.getItem("allToDo"));
-      if (existingTasks == null) existingTasks = [];
-      localStorage.setItem(
-        "ToDO",
-        JSON.stringify({ todo: this.todo, done: false })
-      );
-      existingTasks.push({ todo: this.todo, done: false });
-      localStorage.setItem("allToDo", JSON.stringify(existingTasks));
+    name: "ToDo",
+    data() {
+        return {
+            ToDo_list: [],
+        };
     },
-    delete_ToDo(index) {
-      this.ToDo_list.splice(index, 1);
-      localStorage.setItem("allToDo", JSON.stringify(this.ToDo_list));
+    mounted() {
+        if (localStorage.getItem("allToDo")) {
+            this.ToDo_list = JSON.parse(localStorage.getItem("allToDo"));
+        }
     },
-    doneTodo(todo) {
-        todo.done = !todo.done;
+    methods: {
+        delete_ToDo(index) {
+            this.ToDo_list.splice(index, 1);
+            localStorage.setItem("allToDo", JSON.stringify(this.ToDo_list));
+        },
+        doneTodo(todo) {
+            todo.done = !todo.done;
+        },
     },
-  },
+    components: { AddWebSite }
 };
 </script>
 <style>
